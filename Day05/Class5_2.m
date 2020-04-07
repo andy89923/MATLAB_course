@@ -3,8 +3,9 @@ clc
 
 format short
 
-n = 3;
-all = [1.0 0.0 1.0; 2.0 -1.0 1.0; 3.0 2.0 0.0];
+n = 4;
+% all = [1.0 0.0 1.0; 2.0 -1.0 1.0; 3.0 2.0 0.0];
+all = magic(4);
 % all = all';
 
 ans = GSO(all, n);
