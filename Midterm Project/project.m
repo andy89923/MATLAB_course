@@ -87,12 +87,11 @@ function ans = ConvertToDec(num, M)
 	numlis = char(num);
 
 	t = length(numlis) + 1;
-
 	for i = 1 : 1 : t - 1
 		if numlis(i) == '.'
 			t = i;
 			break;
-         end
+        end
     end
     
     ans = 0.0;
