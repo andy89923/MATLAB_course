@@ -92,7 +92,7 @@ function ans = ConvertToDec(num, M)
 		if numlis(i) == '.'
 			t = i;
 			break;
-        end
+         end
     end
     
     ans = 0.0;
