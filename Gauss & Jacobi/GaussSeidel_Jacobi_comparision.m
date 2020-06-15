@@ -13,14 +13,14 @@ tol = 1.e-6;                      % keep iteration until error converges to <= t
 error = 2*tol;                    % initial error set to larger than tol 
 
 % Gauss-Seidel Method 
-D = diag(diag(A));   % A = L + T 
-L = tril(A);              % L: lower triangle 
+D = diag(diag(A));      % A = L + T 
+L = tril(A);            % L: lower triangle 
 T = triu(A)-D;          % T: everything else 
-plotGauss(:,1) = x0;                      % first column of matrix x is tr[1 2 2]
+plotGauss(:,1) = x0;    % first column of matrix x is tr[1 2 2]
 GaussItr_num  = 1;
 
 while( (error > tol) && (GaussItr_num < 100) )
-    GaussItr_num = GaussItr_num +1;                       % matlab list index starting from 1
+    GaussItr_num = GaussItr_num +1;     % matlab list index starting from 1
     plotGauss(:,GaussItr_num)= L\(b-T*plotGauss(:,GaussItr_num-1));
     error = norm(plotGauss(:,GaussItr_num)-plotGauss(:,GaussItr_num-1),inf);  
 end
@@ -29,7 +29,7 @@ true_GaussItr_num = GaussItr_num - 1;
 fprintf('Solution of the Gauss-Seidel is : \n%f \n%f \n%f \n%f \n%f in %d iterations',plotGauss(:,GaussItr_num),true_GaussItr_num);
 figure(1);
 plot(plotGauss')
-xlabel('iteration number')                            % matlab list index starting from 1
+xlabel('iteration number')              % matlab list index starting from 1
 ylabel('solution')           
 
 % Jacobi Method
@@ -47,7 +47,7 @@ plotJacob(:,1) = x0;                      % first column of matrix is x0
 JocobItr_num = 1;
 
 while((error > tol) && (JocobItr_num < 100))
-   JocobItr_num = JocobItr_num +1;          % matlab list index starting from 1
+   JocobItr_num = JocobItr_num +1;         % matlab list index starting from 1
    plotJacob(:,JocobItr_num)= M*plotJacob(:,JocobItr_num-1)+ b0;
    error = norm(plotJacob(:,JocobItr_num)-plotJacob(:,JocobItr_num-1),inf);  
 end
@@ -56,7 +56,7 @@ true_JocobItr_num = JocobItr_num - 1;
 fprintf('Solution of the Jacobi is : \n%f \n%f \n%f \n%f \n%f in %d iterations',plotJacob(:,JocobItr_num),true_JocobItr_num);
 figure(2);
 plot(plotJacob')
-xlabel('iteration number')                            % matlab list index starting from 1
+xlabel('iteration number')                 % matlab list index starting from 1
 ylabel('solution') 
 
 
